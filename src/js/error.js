@@ -1,9 +1,22 @@
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
-import { error, defaultStack } from '@pnotify/core';
+import { alert, error, defaultStack } from '@pnotify/core';
 
-error({
-    title: 'Error',
-    text: 'Something went wrong',
-    delay: 3000
+export function warning() {
+  alert({
+    title: 'ALARM',
+    text: 'Please enter a more precise query',
+    delay: 5000,
   });
+}
+
+export function bigError() {
+  error({
+    title: 'ERROR',
+    text: 'Many matches, please enter a more precise query',
+    delay: 5000,
+  });
+}
+
+
+

@@ -1,4 +1,6 @@
-import getRefs from './refs'
+const BASE_URL = 'https://restcountries.eu/rest/v2/name';
 
-const refs = getRefs()
-
+export default function fetchCountries(searchQuery) {
+    return fetch(`${BASE_URL}/${searchQuery}`)
+        .then(response => response.json());
+}
