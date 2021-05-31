@@ -2,10 +2,10 @@ import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 import { alert, error, defaultStack } from '@pnotify/core';
 
-export function warning() {
+export function warning(message) {
   alert({
     title: 'ALARM',
-    text: 'Please enter a more precise query',
+    text: `${message}`,
     delay: 5000,
   });
 }

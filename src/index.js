@@ -12,6 +12,9 @@ const refs = getRefs();
 refs.inputSearchEl.addEventListener('input', debounce(onSearch, 1500));
 
 function onSearch(evt) {
+  if (evt.target.value.trim() === '') {
+    return warning('Empty request, enter your search data')
+  }
   clearCardCont();
   fetchCountries(evt.target.value.trim()).then(markup);
 }
@@ -28,11 +31,10 @@ function makeCountriesListMarkup(countries) {
 
 function markup(data) {
   if (data.length === 1) {
-    clearInput();
     makeCountryMarkup(data);
   }
   if (data.length > 1 && data.length < 10) {
-    warning();
+    warning('Please enter a more precise query');
     makeCountriesListMarkup(data);
   }
   if (data.length > 10) {
